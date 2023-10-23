@@ -30,7 +30,7 @@ class SigninScreen extends StatelessWidget {
         listener: (context,state){
           if(state is SigninSuccessState){
             defToast2(
-              msg: 'Successfully Signin',
+                title: 'Successfully Signin',
               context: context,
               dialogType: DialogType.success
             ).then((value) {
@@ -40,7 +40,7 @@ class SigninScreen extends StatelessWidget {
           }
           if(state is SigninErrorState){
             defToast2(
-              msg: state.error.toString(),
+              title: state.error.toString(),
                 context: context,
                 dialogType: DialogType.error
             );
@@ -65,7 +65,7 @@ class SigninScreen extends StatelessWidget {
                             color: Colors.transparent,
                             borderRadius: BorderRadius.circular(5) 
                           ),
-                          child: Image.asset('assets/fi1.png'),
+                          child: Image.asset('assets/logo.png'),
                         ),
                         const Text("Signin",
                           style: TextStyle(

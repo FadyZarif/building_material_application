@@ -30,16 +30,26 @@ defToast(
 }
 Future<void> defToast2({
   required BuildContext context,
-  required String msg,
-  required DialogType dialogType
+  required String title,
+  String? desc,
+  void Function()? btnOkOnPress,
+  void Function()? btnCancelOnPress,
+  required DialogType dialogType,
+  bool autoHide = true,
+
 
 })async{
   await AwesomeDialog(
+
     context: context,
     animType: AnimType.scale,
-    autoHide: const Duration(seconds: 2),
-    title: msg,
+    autoHide: autoHide? Duration(seconds: 2) : null,
+    title: title,
+    desc: desc,
     dialogType: dialogType,
+    btnOkOnPress: btnOkOnPress,
+    btnCancelOnPress: btnCancelOnPress,
+
 
   ).show();
 }

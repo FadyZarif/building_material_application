@@ -5,7 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 import '../../models/products_model.dart';
+import '../../screens/cart_screen.dart';
+import '../../screens/categories.dart';
 import '../../screens/home_screen.dart';
+import '../../screens/user.dart';
 import 'layout_states.dart';
 
 class LayoutCubit extends Cubit<LayoutStates>{
@@ -14,12 +17,9 @@ class LayoutCubit extends Cubit<LayoutStates>{
   int currentIndex = 0;
   List<Widget> screens = [
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    // CategoriesScreen(),
-    // CartScreen(),
-    // UserScreen()
+    CategoriesScreen(),
+    CartScreen(),
+    UserScreen()
   ];
   void changeScreen({required int i}){
     currentIndex = i;

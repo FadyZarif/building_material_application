@@ -11,6 +11,8 @@ import '../cubits/home_cubit/home_states.dart';
 import '../cubits/theme_cubit/theme_cubit.dart';
 import '../widgets/feed_items.dart';
 import '../widgets/on_sale_widget.dart';
+import 'feeds_screen.dart';
+import 'on_sale_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,10 +20,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const List<String> _offerImages = [
-      'assets/offres/Offer1.jpg',
-      'assets/offres/Offer2.jpg',
-      'assets/offres/Offer3.jpg',
-      'assets/offres/Offer4.jpg'
+      'assets/cover1.png',
+      'assets/cover2.png',
+      'assets/cover3.jpeg',
+      'assets/cover4.png'
     ];
     HomeCubit homeCubit =HomeCubit.get(context);
 
@@ -66,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    // navigateTo(context, OnSaleScreen());
+                    navigateTo(context, OnSaleScreen());
                   },
                   child: Text(
                     'View all',
@@ -147,7 +149,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        // navigateTo(context, FeedsScreen());
+                        navigateTo(context, FeedsScreen());
                       },
                       child: Text(
                         'Browse all',

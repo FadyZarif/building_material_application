@@ -44,13 +44,10 @@ class OnSaleWidget extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FancyShimmerImage(
-                  imageUrl: productModel.imageUrl!,
-                  height: MediaQuery.of(context).size.width * 0.22,
+                Image.asset(productModel.imageUrl!,
                   width: MediaQuery.of(context).size.width * 0.22,
-                  boxFit: BoxFit.fill,
-                  shimmerBackColor: Colors.grey,
-                  shimmerHighlightColor: Colors.white70,
+                  height: MediaQuery.of(context).size.width * 0.22,
+                  fit: BoxFit.fill,
                 ),
                 // Image.network('https://i.ibb.co/F0s3FHQ/Apricots.png',
                 //   height: MediaQuery.of(context).size.width*0.22,

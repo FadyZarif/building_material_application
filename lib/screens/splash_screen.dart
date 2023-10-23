@@ -111,7 +111,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  child: Image.asset('assets/fi1.png')
+                  child: Image.asset('assets/logo.png')
 
               ),
             ),
