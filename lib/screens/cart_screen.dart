@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:building_material_application/constants/constants.dart';
+import 'package:building_material_application/screens/payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -23,8 +24,10 @@ class CartScreen extends StatelessWidget {
     cartCubit.cartItems.forEach((key, value) {
       if(FeedsCubit.get(context).findProdById(value.productId!, HomeCubit.productsList).isOnSale ==false){
         price+= value.quantity! * FeedsCubit.get(context).findProdById(value.productId!, HomeCubit.productsList).price!;
+        cartCubit.emit(CartChangeItemState());
       }else{
         price+=value.quantity! * FeedsCubit.get(context).findProdById(value.productId!, HomeCubit.productsList).salePrice!;
+        cartCubit.emit(CartChangeItemState());
       }
     });
 
@@ -90,7 +93,13 @@ class CartScreen extends StatelessWidget {
                               height: MediaQuery.of(context).size.width * 0.13,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12)),
-                              onPressed: () {},
+                              onPressed: () {
+                                if(cartCubit.cartItems.isNotEmpty){
+                                  navigateTo(context, PaymentScreen(price: price));
+                                }else{
+                                  defToast2(context: context, title: 'cart is empty', dialogType: DialogType.error);
+                                }
+                              },
                               child: Text('Order Now',
                                   style: TextStyle(color: Colors.white)),
                             )),
